@@ -1,0 +1,27 @@
+{
+  "show_combat_power": [
+    {
+      "pattern": "3D ? ? ? ? 0F 85 ? ? ? ? 49 8B ? ? ? ? ? 48 8B ? ? ? ? ? E8",
+      "offset": 5,
+      "patch": "90 90 90 90 90 90"
+    }
+  ],
+  "one_click_revive": [
+    {
+      "pattern": "0F 86 ? ? ? ? 49 8B ? ? 49 8B ? FF 50",
+      "patch": "90 E9"
+    }
+  ],
+  "disable_mount_timeout": [
+    {
+      "pattern": "48 81 C1 E8 03 00 00 48 3B ? 0F 96 ? 48 83 C4 ? 5B",
+      "patch": "90 90 90 90 90 90 90"
+    }
+  ],
+  "no_drop_animation": [
+    {
+      "pattern": "0F 84 ? ? ? ? 49 83 BE 40 01 00 00 ? 0F 85",
+      "patch": "90 E9"
+    }
+  ]
+}
