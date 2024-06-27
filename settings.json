@@ -20,7 +20,7 @@
   "force_client_side_devcat": false,
   "allow_interface_while_dead": true,
   "increase_alt_text_distance": true,
-  "hide second titles": true,
+  "hide_second_titles": true,
   "hide_npc_curtains": true,
   "allow_hotkey_for_any_item": true,
   "disable_translucency_changes": true,
