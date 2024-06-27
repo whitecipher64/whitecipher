@@ -1,9 +1,54 @@
 {
+  "uncap_roduction": [
+    {
+      "pattern": "0F B7 ? ? 3B D8 0F 47 ? 89 9C ? ? ? ? ? BA ? ? ? ? 48 8B",
+      "patch": "66 B8 ffff"
+    },
+    {
+      "pattern": "0F B7 ? ? 66 85 ? 75 ? 41 0F ? ? 40 32 ? EB ? 40 B6",
+      "n": 1,
+      "patch": "66 BF ffff"
+    }
+  ],
   "show_combat_power": [
     {
       "pattern": "3D ? ? ? ? 0F 85 ? ? ? ? 49 8B ? ? ? ? ? 48 8B ? ? ? ? ? E8",
       "offset": 5,
       "patch": "90 90 90 90 90 90"
+    }
+  ],
+  "use_bitmap_font": [
+    {
+      "pattern": "74 ? E8 ? ? ? ? EB ? E8 ? ? ? ? 48 8B ? E8 ? ? ? ? 48 C7 47 10",
+      "patch": "90 90"
+    },
+    {
+      "pattern": "75 ? 83 bf B8 00 00 00",
+      "patch": "EB"
+    },
+    {
+      "pattern": "74 ? 44 38 ? ? ? ? ? 75 ? 44 88",
+      "patch": "EB"
+    },
+    {
+      "pattern": "0F 84 ? ? ? ? 48 8B ? ? ? ? ? E8 ? ? ? ? 48 8B ? 0F B7",
+      "patch": "90 90 90 90 90 90 ? ? ? ? ? ? ? 90 90 90 b0 01 48 8B ? 0F B7 ? ? ? EB"
+    }
+  ],
+  "elf_lag_fix": [
+    {
+      "pattern": "48 89 ? ? ? 57 48 83 EC ? 48 8B ? 0F B7 ? 48 8B ? FF 50 ? 48 8B ? E8 ? ? ? ? 84 C0 74",
+      "patch": "30 C0 30 C9 C3"
+    }
+  ],
+  "windows_appear_faster": [
+    {
+      "pattern": "74 ? E8 ? ? ? ? 48 85 ? 74 ? F6 43 20 ? 75 ? 48 8B ? 48 8B ? FF 92",
+      "patch": "EB"
+    },
+    {
+      "pattern": "8B 54 ? ? 45 33 ? 48 8B ? E8 ? ? ? ? 48 8B ? ? ? ? ? B2 ? E8",
+      "patch": "33 D2 90 90"
     }
   ],
   "one_click_revive": [
@@ -18,10 +63,448 @@
       "patch": "90 90 90 90 90 90 90"
     }
   ],
+  "equip_slot_swap_delay_fix": [
+    {
+      "pattern": "48 05 ? ? ? ? 49 3B ? 0F 86 ? ? ? ? E8",
+      "offset": 2,
+      "patch": "00 00"
+    }
+  ],
+  "unlimited_zoom": [
+    {
+      "pattern": "F3 0F ? ? ? F3 0F ? ? 72 ? BA 0C",
+      "patch": "90 90 90 90 90"
+    }
+  ],
+  "allow_moving_to_same_channel": [
+    {
+      "pattern": "74 ? 41 8B ? ? EB ? 8B CF 41 2B ? 44 03 ? 44 8B ? 45 03 ? E9 ? ? ? ? 41 8B ? 3B 48 ? 0F 85 ? ? ? ? 48 8D ? ? 49 8D ? ? 4D 85 ? 49 0F ? ? E8 ? ? ? ? 85 C0 0F 85 ? ? ? ? 4C 8B ? ? ? ? ? 4C 89 ? ? 4C 89 ? ? E8 ? ? ? ? 48 8B ? 4C 89 ? ? 48 8D ? ? ? ? ? E8 ? ? ? ? 8B F8 8D 48 ? E8 ? ? ? ? 48 89 ? ? 48 8D ? ? 4C 8D ? ? ? ? ? 8D 57 ? E8 ? ? ? ? 48 8B ? ? 89 79 ? 4C 8D ? ? 48 8D ? ? 48 8B ? E8 ? ? ? ? 90 45 33 ? 48 8D ? ? 48 8B ? E8 ? ? ? ? BF",
+      "patch": "EB"
+    }
+  ],
+  "disable_channel_move_description": [
+    {
+      "pattern": "C6 44 24 60 ? 48 8D ? ? 48 89 ? ? ? C6 44 24 50 ? C6 44 24 48 ? C6 44 24 40 ? C6 44 24 38 ? C6 44 24 30 ? C6 44 24 28 ? C7 44 24 20 ? ? ? ? 4D 8B ? 4C 8D ? ? 48 8D ? ? E8 ? ? ? ? 90 48 8B ? ? 48 85 ? 74 ? E8 ? ? ? ? 4C 89 ? ? 48 8B ? ? 48 85 ? 74 ? E8 ? ? ? ? 4C 89 ? ? 49 8B",
+      "patch": "90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90"
+    }
+  ],
+  "disable_logout_penalty_msg": [
+    {
+      "pattern": "0F 84 ? ? ? ? 32 DB 88 5D",
+      "patch": "90 E9"
+    }
+  ],
+  "infinite_party_ad_time": [
+    {
+      "pattern": "48 89 ? ? ? 57 48 83 EC ? 8B DA 48 8B ? 48 8B ? ? 48 83 78 08",
+      "offset": 24,
+      "patch": "EB"
+    }
+  ],
+  "remove_dungeon_fog": [
+    {
+      "pattern": "0F B6 41 05 C0 E8 ?",
+      "patch": "33 C0 C3 90 90 90 90 90 90 90 90"
+    }
+  ],
+  "always_trans_collect_mode": [
+    {
+      "pattern": "44 38 ? ? ? ? ? 0F 84 ? ? ? ? 48 8B ? E8 ? ? ? ? 84 C0 0F 84",
+      "offset": 8,
+      "patch": "85"
+    }
+  ],
+  "allow_canceling_lance_counter": [
+    {
+      "pattern": "48 89 ? ? ? 48 89 ? ? ? 48 89 ? ? ? 57 48 83 EC ? 48 8B ? E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? E8",
+      "patch": "30 C0 30 C8 C3"
+    }
+  ],
+  "allow_rapid_chat_messages": [
+    {
+      "pattern": "76 ? 4C 8B ? ? ? ? ? 48 89 ? ? E8 ? ? ? ? 4C 8B",
+      "patch": "EB"
+    }
+  ],
+  "enable_chat_to_mini-gamers": [
+    {
+      "pattern": "75 ? 8B D0 48 8D ? ? E8 ? ? ? ? 48 8B ? 4C 8B ? 48 8B ? ? 49 3B ? 74 ? 48 85 ? 74 ? E8 ? ? ? ? 49 8B ? 48 89 ? ? 4C 8B ? 4D 85 ? 74 ? 48 85 ? 74 ? E8 ? ? ? ? 4C 89 ? ? 4C 8B ? 4D 85 ? 74 ? 33 D2 49 8B ? E8 ? ? ? ? 48 89 ? ? EB",
+      "patch": "EB"
+    }
+  ],
+  "force_client_side_devcat": [
+    {
+      "pattern": "74 ? 48 8B ? 48 8B ? FF 90 ? ? ? ? 48 8B ? E8 ? ? ? ? 3D ? ? ? ? 74 ? 32 C0",
+      "patch": "EB"
+    }
+  ],
+  "allow_interface_while_dead": [
+    {
+      "pattern": "FF C0 EB ? 85 C0 74 ? FF C8 89 81 ? ? ? ? 48 89",
+      "patch": "90 90"
+    }
+  ],
+  "increase_alt_text_distance": [
+    {
+      "pattern": "0F 86 ? ? ? ? 41 0F ? ? 0F 82",
+      "patch": "90 90 90 90 90 90"
+    }
+  ],
+  "hide second titles": [
+    {
+      "pattern": "75 ? 48 8B ? ? ? ? ? 48 8B ? 4D 8B ? 41 0F ? ? FF 50 ? 85 C0 44 0F ? ? 48 8B ? ? ? ? ? E8",
+      "patch": "EB"
+    }
+  ],
+  "hide_npc_curtains": [
+    {
+      "pattern": "40 ? 48 83 EC ? 48 8B ? 38 11 74",
+      "patch": "30 C0 30 C9 C3 90 90 90 90 90 90"
+    }
+  ],
+  "allow_hotkey_for_any_item": [
+    {
+      "pattern": "48 83 EC ? 48 8B ? 48 85 ? 74 ? BA ? ? ? ? 48 8B ? E8 ? ? ? ? 84 C0 74 ? B0 ? 48 83 C4 ? C3 32 C0 48 83 C4",
+      "n": 1,
+      "offset": 36,
+      "patch": "B0 01"
+    },
+    {
+      "pattern": "48 8D ? ? E8 ? ? ? ? 32 C0 4C 8D ? ? ? 49 8B ? ? 49 8B ? ? 49 8B ? 41 ? 5F",
+      "offset": 9,
+      "patch": "90 90"
+    }
+  ],
+  "disable_translucency_changes": [
+    {
+      "pattern": "48 83 79 08 ? 75 ? 48 85 ? 74 ? 48 8B",
+      "offset": 5,
+      "patch": "90 90"
+    }
+  ],
+  "show_clock_minutes": [
+    {
+      "pattern": "89 85 ? ? ? ? 4D 39 ? ? ? ? ? 0F 84 ? ? ? ? 48 8D",
+      "patch": "90 90 90 90 90 90"
+    },
+    {
+      "pattern": "89 85 ? ? ? ? 4D 8B ? ? ? ? ? 4D 85 ? 0F 84 ? ? ? ? 49 8B ? ? 4C 8B",
+      "patch": "90 90 90 90 90 90"
+    }
+  ],
+  "enable_right-clicking_self": [
+    {
+      "pattern": "0F 85 ? ? ? ? 49 8B ? ? ? ? ? E8 ? ? ? ? 84 C0 74 ? 48 8B",
+      "offset": 1,
+      "patch": "81"
+    }
+  ],
+  "show_negative_hp_when_deadly": [
+    {
+      "pattern": "75 ? 48 8B ? ? ? 48 8D ? ? ? ? ? 48 85",
+      "n": 0,
+      "patch": "EB"
+    },
+    {
+      "pattern": "75 ? 48 8B ? ? ? 48 8D ? ? ? ? ? 48 85",
+      "n": 1,
+      "patch": "EB"
+    },
+    {
+      "pattern": "75 ? 48 8B ? ? ? 4C 8D ? ? ? ? ? 48 85",
+      "patch": "EB"
+    },
+    {
+      "pattern": "33 C9 85 FF 0F 49",
+      "patch": "90 90 90 90 90 90 90 8B CF"
+    },
+    {
+      "pattern": "33 F6 8B CE 85 FF",
+      "patch": "90 90 90 90 90 90 90 8B CF"
+    },
+    {
+      "pattern": "33 F6 8B CE 85 DB",
+      "patch": "90 90 90 90 90 90 90 8B CB"
+    }
+  ],
+  "enable_npc_equipment_view": [
+    {
+      "pattern": "0F 85 ? ? ? ? 49 8B ? E8 ? ? ? ? 84 C0 75 ? 49 8B ? ? ? ? ? ? E8",
+      "offset": 1,
+      "patch": "80"
+    }
+  ],
+  "faster_networking": [
+    {
+      "pattern": "75 ? B0 ? 48 83 C4 ? 5B C3 FF 15",
+      "patch": "90 90"
+    },
+    {
+      "pattern": "74 ? FF 15 ? ? ? ? 8B 53",
+      "patch": "EB"
+    }
+  ],
+  "disable_item_magnet_cooldown": [
+    {
+      "pattern": "E8 ? ? ? ? 48 8B ? 48 89 ? ? 48 85 ? 0F 84 ? ? ? ? E8 ? ? ? ? 48 8B ? 48 2B",
+      "offset": 6,
+      "patch": "33 C0"
+    },
+    {
+      "pattern": "BB ? ? ? ? 48 89 ? ? ? ? ? ? 48 8B ? ? ? ? ? E8 ? ? ? ? 48 85",
+      "offset": 1,
+      "patch": "01 00 00 00"
+    }
+  ],
+  "show_entity_hp": [
+    {
+      "pattern": "0F 84 ? ? ? ? 89 7D ? BA",
+      "patch": "90 90 90 90 90 90"
+    }
+  ],
+  "show_unknown_quest_objectives": [
+    {
+      "pattern": "0F 85 ? ? ? ? 41 80 7C 24 1A",
+      "offset": 1,
+      "patch": "81"
+    }
+  ],
+  "render_wireframe": [
+    {
+      "pattern": "FF 52 ? 84 C0 0F 85 ? ? ? ? 8B 0D",
+      "patch": "B0 01 90"
+    }
+  ],
+  "render_fps_info": [
+    {
+      "pattern": "FF 52 ? 84 C0 0F 84 ? ? ? ? 8B C7",
+      "patch": "B0 01 90"
+    }
+  ],
+  "disable_character_rendering": [
+    {
+      "pattern": "48 8B ? 48 8B ? FF 52 ? 84 C0 0F 84 ? ? ? ? 49 8B ? ? ? ? ? 48 85",
+      "offset": 80,
+      "patch": "EB"
+    }
+  ],
+  "disable_prop_rendering": [
+    {
+      "pattern": "48 8B ? 48 8B ? FF 52 ? 84 C0 0F 84 ? ? ? ? 49 8B ? ? ? ? ? 48 85",
+      "offset": 168,
+      "patch": "EB"
+    }
+  ],
+  "render_light_radius": [
+    {
+      "pattern": "48 8B ? FF 52 ? 84 C0 0F 84 ? ? ? ? 49 8B ? ? ? E8",
+      "offset": 3,
+      "patch": "90 90 90"
+    }
+  ],
+  "render_light_information": [
+    {
+      "pattern": "48 8B ? 48 8B ? FF 52 ? 84 C0 0F 84 ? ? ? ? 48 8B ? 48 8B ? ? ? ? ? E8",
+      "offset": 11,
+      "patch": "90 90 90 90 90 90"
+    },
+    {
+      "pattern": "48 8B ? FF 52 ? 84 C0 74 ? 44 8B ? 48 8B ? 48 8B ? ? ? ? ? 42 8B",
+      "offset": 3,
+      "patch": "90 90 90"
+    }
+  ],
+  "render_collision_boxes": [
+    {
+      "pattern": "48 8B ? 48 8B ? FF 52 ? 84 C0 0F 84 ? ? ? ? 48 8B ? 48 8B ? ? ? ? ? E8",
+      "offset": 11,
+      "patch": "90 90 90 90 90 90"
+    },
+    {
+      "pattern": "48 8B ? FF 52 ? 84 C0 74 ? 48 8B ? 33 D2",
+      "offset": 3,
+      "patch": "90 90 90"
+    }
+  ],
+  "render_bones_hitboxes": [
+    {
+      "pattern": "48 8B ? 48 8B ? FF 52 ? 84 C0 0F 84 ? ? ? ? 48 8B ? 48 8B ? ? ? ? ? E8",
+      "offset": 11,
+      "patch": "90 90 90 90 90 90"
+    },
+    {
+      "pattern": "B2 ? 48 8B ? FF 90 ? ? ? ? 48 8B ? 48 8B ? ? ? ? ? E8",
+      "offset": 32,
+      "patch": "90 90 90"
+    }
+  ],
   "no_drop_animation": [
     {
       "pattern": "0F 84 ? ? ? ? 49 83 BE 40 01 00 00 ? 0F 85",
       "patch": "90 E9"
+    }
+  ],
+  "remove_sunglare": [
+    {
+      "pattern": "FF 52 ? 84 C0 0F 84 ? ? ? ? C7 44 24 20",
+      "offset": 5,
+      "patch": "90 E9"
+    }
+  ],
+  "remove_pet_summon_notification": [
+    {
+      "pattern": "0F 84 ? ? ? ? 48 8B ? FF 90 ? ? ? ? 84 C0 0F 84 ? ? ? ? 49 8B ? E8 ? ? ? ? 4C 89",
+      "patch": "90 E9"
+    }
+  ],
+  "disable_waitprocess_skill_locks": [
+    {
+      "pattern": "0F 85 ? ? ? ? 49 8B ? ? ? ? ? ? 48 85 ? 74 ? 48 8D ? ? 48 89",
+      "patch": "90 90 90 90 90 90"
+    }
+  ],
+  "enable_prop_target_with_skill_loaded": [
+    {
+      "pattern": "0F 84 ? ? ? ? 48 8D ? ? ? ? ? 48 85 ? 74 ? 48 8D ? ? 48 3B ? 0F 84 ? ? ? ? 48 8B ? E8 ? ? ? ? 8B D8 83 F8",
+      "patch": "90 90 90 90 90 90"
+    }
+  ],
+  "reforge_guide_skip": [
+    {
+      "pattern": "E8 ? ? ? ? 48 8B ? ? ? ? ? 48 85 ? 0F 84 ? ? ? ? 48 8B ? ? ? ? ? 48 85 ? 0F 84 ? ? ? ? 48 8B",
+      "patch": "90 90 90 90 90"
+    },
+    {
+      "pattern": "33 D2 FF 90 ? ? ? ? 4D 8B ? ? ? ? ? 49 8B ? 4C 8B ? ? E8 ? ? ? ? 48 8B ? 48 C7 45 77",
+      "patch": "B2 01"
+    }
+  ],
+  "don't_close_title_window": [
+    {
+      "pattern": "FF 50 ? B0 ? 48 8B ? ? ? 48 83 C4 ? 5F C3 E8",
+      "patch": "90 90 90"
+    }
+  ],
+  "enable_hidden_mob_attack_(mimic-unhide)": [
+    {
+      "pattern": "0F 84 ? ? ? ? 48 8B ? FF 90 ? ? ? ? 48 8B ? E8 ? ? ? ? 48 8B ? 48 85 ? 0F 84 ? ? ? ? 49 8B",
+      "patch": "90 E9"
+    }
+  ],
+  "disable_combat_timeout": [
+    {
+      "pattern": "74 ? 48 8B ? E8 ? ? ? ? 83 F8 ? 75 ? 48 8B ? E8 ? ? ? ? 84 C0 74",
+      "patch": "EB"
+    }
+  ],
+  "render_bones": [
+    {
+      "pattern": "48 8B ? 48 8B ? FF 52 ? 84 C0 0F 84 ? ? ? ? 48 8B ? 48 8B ? ? ? ? ? E8",
+      "offset": 11,
+      "patch": "90 90 90 90 90 90"
+    },
+    {
+      "pattern": "48 8B ? 48 8B ? FF 52 ? 84 C0 0F 84 ? ? ? ? 48 8B ? 48 8B ? FF 50",
+      "offset": 6,
+      "patch": "B0 01 90"
+    }
+  ],
+  "render_framework": [
+    {
+      "pattern": "48 8B ? 48 8B ? FF 52 ? 84 C0 0F 84 ? ? ? ? 48 8B ? 48 8B ? ? ? ? ? E8",
+      "offset": 11,
+      "patch": "90 90 90 90 90 90"
+    },
+    {
+      "pattern": "48 8B ? 48 8B ? FF 52 ? 84 C0 74 ? 48 8B ? 48 8B ? FF 90 ? ? ? ? 48 83 C3",
+      "offset": 6,
+      "patch": "B0 01 90"
+    }
+  ],
+  "enable_golem_hit_props": [
+    {
+      "pattern": "E8 ? ? ? ? 84 C0 0F 85 ? ? ? ? 48 8B ? E8 ? ? ? ? 48 8B ? 83 F8",
+      "patch": "B8 00 00 00 00"
+    }
+  ],
+  "enable_golem_speak": [
+    {
+      "pattern": "74 ? 4C 89 ? ? 48 8D ? ? ? ? ? E8 ? ? ? ? 8B F8 8D 48 ? E8 ? ? ? ? 48 89 ? ? 48 8D ? ? 4C 8D ? ? ? ? ? 8D 57 ? E8 ? ? ? ? 48 8B ? ? 89 7A ? 48 8D ? ? 48 8B ? 41 FF",
+      "patch": "71"
+    },
+    {
+      "pattern": "48 8B ? E8 ? ? ? ? 84 C0 0F 85 ? ? ? ? 48 8B ? 48 8B ? E8 ? ? ? ? 84 C0 0F 85 ? ? ? ? 48 8B ? 48 8B",
+      "offset": 3,
+      "patch": "B8 00 00 00 00"
+    }
+  ],
+  "uncap_flight": [
+    {
+      "pattern": "0F 84 ? ? ? ? E8 ? ? ? ? 48 8B ? E8 ? ? ? ? 48 8B ? 48 C7 44 24 48",
+      "offset": 1,
+      "patch": "80"
+    },
+    {
+      "pattern": "74 ? 48 8B ? ? 0F 57 ? 8B 48 ? F3 48",
+      "patch": "EB"
+    },
+    {
+      "pattern": "F3 48 ? ? ? C3 F3 0F",
+      "offset": 6,
+      "patch": "F3 0F 10 C6 90 90 90 90"
+    }
+  ],
+  "no_aviation_check": [
+    {
+      "pattern": "76 ? 48 8D ? ? ? ? ? E8 ? ? ? ? 48 8D ? ? ? ? ? 48 8B",
+      "patch": "EB"
+    }
+  ],
+  "land_any_height": [
+    {
+      "pattern": "0F 82 ? ? ? ? E8 ? ? ? ? 48 8B ? 4C 89 ? ? ? 48 8D ? ? ? ? ? E8 ? ? ? ? 8B F8 8D 48 ? E8 ? ? ? ? 48 89 ? ? ? 48 8D ? ? 4C 8D ? ? ? ? ? 8D 57 ? E8 ? ? ? ? 48 8B ? ? ? 89 79 ? 4C 8D ? ? ? 48 8D ? ? 48 8B ? E8 ? ? ? ? 90 45 33 ? 48 8D ? ? ? 48 8B",
+      "offset": 1,
+      "patch": "85"
+    }
+  ],
+  "nao_immediately": [
+    {
+      "pattern": "41 B8 ? ? ? ? 48 8B ? 48 8B ? E8 ? ? ? ? 90 48 8D ? ? E8 ? ? ? ? 4D 8B",
+      "offset": 2,
+      "patch": "FF 00"
+    },
+    {
+      "pattern": "BA C3 04 00 00 48 8D ? ? E8 ? ? ? ? 90 B2 ? 48 8D",
+      "offset": 58,
+      "patch": "01 00 00"
+    },
+    {
+      "pattern": "BA C3 04 00 00 48 8D ? ? E8 ? ? ? ? 90 B2 ? 48 8D",
+      "offset": 64,
+      "patch": "01 00 00"
+    },
+    {
+      "pattern": "BA C6 04 00 00 48 8D ? ? E8 ? ? ? ? 90 B2 ? 48 8D",
+      "offset": 58,
+      "patch": "01 00 00"
+    },
+    {
+      "pattern": "BA C6 04 00 00 48 8D ? ? E8 ? ? ? ? 90 B2 ? 48 8D",
+      "offset": 64,
+      "patch": "01 00 00"
+    }
+  ],
+  "disable_censorship": [
+    {
+      "pattern": "0F 84 ? ? ? ? 32 D2 45 32",
+      "patch": "90 E9"
+    }
+  ],
+  "enable_mounted_prop_attack": [
+    {
+      "pattern": "F3 0F ? ? ? ? 48 C7 44 24 30 ? ? ? ? B0 01 48 8B ? ? ? 48 8B",
+      "offset": 16,
+      "patch": "00"
     }
   ]
 }
